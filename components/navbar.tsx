@@ -1,28 +1,26 @@
 'use client';
 
 import { cn, isNavActive } from '@sohanemon/utils';
-import { Iconify } from '@sohanemon/utils/components';
-import { useClickOutside } from '@sohanemon/utils/hooks';
-import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-
+import * as React from 'react';
 import { siteConfig } from '@/config/site';
 import useNavToggle from '@/hooks/nav-toggle';
 
 import { Brand } from './brand';
 import { Motion } from './motion';
+import { Button } from './ui/button';
+import { client } from '@/sanity/lib/client';
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { hidden, leaved } = useNavToggle();
 
   return (
     <Motion
       animate={hidden ? 'top' : 'visible'}
       transition={{ delay: 0.1, duration: 0.5 }}
-      className={cn('fixed inset-x-0 top-0 z-40 bg-background', {
+      className={cn('fixed inset-x-0 top-0 z-40 ', {
         'shadow-lg shadow-foreground/10  bg-background/50 backdrop-blur-md':
           leaved,
       })}
@@ -30,33 +28,19 @@ export function Navbar() {
       <nav className="container flex items-center justify-between py-4">
         <Brand />
         <NavContent />
-        {!isMenuOpen ? (
-          <Iconify
-            className="cursor-pointer text-foreground lg:hidden"
-            icon="lucide:menu"
-            onClick={() => setIsMenuOpen(true)}
-          />
-        ) : (
-          <Iconify
-            className="cursor-pointer text-foreground lg:hidden"
-            icon="lucide:x"
-            onClick={() => setIsMenuOpen(false)}
-          />
-        )}
+        <Button>השאירו פרטים</Button>
       </nav>
-      <AnimatePresence>
-        {isMenuOpen && <NavContentMob setIsMenuOpen={setIsMenuOpen} />}
-      </AnimatePresence>
     </Motion>
   );
 }
 
 const NavContent = () => {
   const path = usePathname();
+  const links =React.use(client.fetch('*[_type=="info"][0]{links}'))
   return (
     <>
       <ul className="ml-20 flex items-center gap-12 max-lg:hidden ">
-        {siteConfig.nav.map((_) => (
+        {links?.map((_) => (
           <li
             key={_.title}
             className={cn('relative', {
@@ -77,27 +61,5 @@ const NavContent = () => {
         ))}
       </ul>
     </>
-  );
-};
-
-const NavContentMob = ({ setIsMenuOpen }: { setIsMenuOpen: Function }) => {
-  const ref = useClickOutside(() => setIsMenuOpen(false));
-  return (
-    <Motion
-      key={'header'}
-      ref={ref}
-      animate="visible"
-      className="absolute inset-x-0 mx-2 flex flex-col items-start gap-4 rounded-xl bg-background p-5 shadow-xl lg:hidden"
-      exit={'left'}
-      initial="top"
-    >
-      {siteConfig.nav.map((_) => (
-        <button key={_.title} onClick={() => setIsMenuOpen(false)}>
-          <span className="capitalize hover:text-primary/50">
-            <Link href={_.href}>{_.title}</Link>
-          </span>
-        </button>
-      ))}
-    </Motion>
   );
 };

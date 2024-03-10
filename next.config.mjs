@@ -10,11 +10,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'cdn.sanity.io',
       },
     ],
   },
-  cacheMaxMemorySize: 1024 * 1024 * 100,
+  cacheMaxMemorySize: 5000,
   logging: {
     fetches: {
       fullUrl: true,
