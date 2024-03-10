@@ -4,5 +4,5 @@ export const metadata = {
   },
 };
 export default async function IndexPage() {
-  return <section></section>;
+  return <section>hello</section>;
 }

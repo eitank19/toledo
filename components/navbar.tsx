@@ -1,16 +1,16 @@
 'use client';
 
+import { siteConfig } from '@/config/site';
+import useNavToggle from '@/hooks/nav-toggle';
 import { cn, isNavActive } from '@sohanemon/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import * as React from 'react';
-import { siteConfig } from '@/config/site';
-import useNavToggle from '@/hooks/nav-toggle';
 
+import { client } from '@/sanity/lib/client';
 import { Brand } from './brand';
 import { Motion } from './motion';
 import { Button } from './ui/button';
-import { client } from '@/sanity/lib/client';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -36,11 +36,13 @@ export function Navbar() {
 
 const NavContent = () => {
   const path = usePathname();
-  const links =React.use(client.fetch('*[_type=="info"][0]{links}'))
+  const links = React.use(client.fetch('*[_type=="info"][0]{links}'));
+  console.log('💬 ~ NavContent ~ links:', links);
+
   return (
     <>
       <ul className="ml-20 flex items-center gap-12 max-lg:hidden ">
-        {links?.map((_) => (
+        {links?.map((_: any) => (
           <li
             key={_.title}
             className={cn('relative', {
