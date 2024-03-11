@@ -1,6 +1,5 @@
 'use client';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
@@ -8,7 +7,6 @@ import { ComponentSelector } from '@/components/component-selector';
 import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
-import { client } from '@/sanity/lib/client';
 
 const fields: FieldType[] = [
   {
@@ -37,7 +35,7 @@ const fields: FieldType[] = [
   },
   {
     name: 'topic',
-    type: 'textarea',
+    type: 'text',
     schema: z.string().optional(),
     placeholder: 'באיזה נושא תרצו שנחזור אליכם?',
   },
@@ -72,7 +70,7 @@ export function FormComponent({
               key={formField.name}
               name={formField.name}
               render={({ field: controllerProps }) => (
-                <FormItem>
+                <FormItem className="my-5 relative z-10">
                   <ComponentSelector
                     controllerProps={controllerProps}
                     formField={formField}
@@ -83,7 +81,7 @@ export function FormComponent({
             />
           );
         })}
-        <div className="flex justify-center">
+        <div className="flex justify-center !-mt-8 bg-background py-6 rounded-b-2xl">
           <Button className="w-32">שליחה</Button>
         </div>
       </form>
