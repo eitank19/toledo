@@ -2,7 +2,6 @@ import { client } from '@/sanity/lib/client';
 
 export const Footer = async () => {
   const data = await client.fetch('*[_type=="footer"][0]');
-  console.log('💬 ~ Footer ~ data:', data);
 
   return (
     <footer className="bg-primary text-primary-foreground/70 text-center py-6">

@@ -24,7 +24,7 @@ export function Navbar() {
       })}
     >
       <nav className="container flex items-center justify-between py-5">
-        <React.Suspense>
+        <React.Suspense fallback={'logo'}>
           <Brand />
         </React.Suspense>
         <React.Suspense>
