@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/form';
 import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
 import { cn } from '@sohanemon/utils';
+import { Iconify } from '@sohanemon/utils/components';
 import { sendEmail } from '../_lib/send-mail';
 
 const fields: FieldType[] = [
@@ -63,8 +64,8 @@ export function FormComponent({
     defaultValues,
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    sendEmail(data);
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    await sendEmail(data);
   }
 
   return (
@@ -101,10 +102,19 @@ export function FormComponent({
           );
         })}
         <div className="flex md:hidden justify-center !-mt-8 bg-background py-6 rounded-b-2xl">
-          <Button className="w-32">שליחה</Button>
+          <Button disabled={form.formState.isSubmitting} className="w-32">
+            שליחה
+            {form.formState.isSubmitting && (
+              <Iconify icon="eos-icons:loading" />
+            )}
+          </Button>
         </div>
-        <Button className="w-fit max-md:hidden z-20 absolute left-12 bottom-12">
+        <Button
+          disabled={form.formState.isSubmitting}
+          className="w-fit max-md:hidden z-20 absolute left-12 bottom-12"
+        >
           שליחה
+          {form.formState.isSubmitting && <Iconify icon="eos-icons:loading" />}
         </Button>
       </form>
     </Form>
