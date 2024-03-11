@@ -12,8 +12,9 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form';
-import { type FieldType, getDefaultValues, getFormSchema } from '@/lib/form';
+import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
 import { cn } from '@sohanemon/utils';
+import { sendEmail } from '../_lib/send-mail';
 
 const fields: FieldType[] = [
   {
@@ -63,7 +64,7 @@ export function FormComponent({
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    alert(JSON.stringify(data, null, 2));
+    sendEmail(data);
   }
 
   return (
