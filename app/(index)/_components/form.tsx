@@ -4,7 +4,14 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 import { ComponentSelector } from '@/components/component-selector';
-import { Form, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from '@/components/ui/form';
 import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
 import { cn } from '@sohanemon/utils';
 
@@ -62,7 +69,7 @@ export function FormComponent({
   return (
     <Form {...form}>
       <form
-        className="rounded-2xl md:grid grid-cols-4 bg-card p-6"
+        className="rounded-2xl md:grid grid-cols-4 relative bg-card p-6"
         onSubmit={form.handleSubmit(onSubmit, console.log)}
       >
         <h2 className="font-black col-span-full text-2xl">{formData?.title}</h2>
@@ -80,19 +87,24 @@ export function FormComponent({
                     formField.cn
                   )}
                 >
-                  <ComponentSelector
-                    controllerProps={controllerProps}
-                    formField={formField}
-                  />
-                  <FormMessage />
+                  <FormControl>
+                    <ComponentSelector
+                      controllerProps={controllerProps}
+                      formField={formField}
+                    />
+                  </FormControl>
+                  <FormMessage className="md:hidden" />
                 </FormItem>
               )}
             />
           );
         })}
-        {/* <div className="flex justify-center !-mt-8 bg-background py-6 rounded-b-2xl">
+        <div className="flex md:hidden justify-center !-mt-8 bg-background py-6 rounded-b-2xl">
           <Button className="w-32">שליחה</Button>
-        </div> */}
+        </div>
+        <Button className="w-fit max-md:hidden z-20 absolute left-12 bottom-12">
+          שליחה
+        </Button>
       </form>
     </Form>
   );
