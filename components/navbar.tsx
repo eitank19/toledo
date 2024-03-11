@@ -19,11 +19,11 @@ export function Navbar() {
     <Motion
       animate={hidden ? 'top' : 'visible'}
       transition={{ delay: 0.1, duration: 0.5 }}
-      className={cn('fixed inset-x-0 top-0 bg-primary z-40 ', {
+      className={cn('sticky inset-x-0 top-0 bg-primary z-40 ', {
         'shadow-lg shadow-primary/10  bg-primary/50 backdrop-blur-md': leaved,
       })}
     >
-      <nav className="container flex items-center justify-between py-4">
+      <nav className="container flex items-center justify-between py-5">
         <Brand />
         <NavContent />
         <Button>השאירו פרטים</Button>
@@ -37,13 +37,11 @@ const NavContent = () => {
   const { links } = React.use(client.fetch('*[_type=="info"][0]{links}'));
   return (
     <>
-      <ul className="ml-20 flex items-center gap-12 max-lg:hidden ">
+      <ul className="flex items-center justify-center gap-10 max-lg:hidden ">
         {links?.map((_: any) => (
           <li
             key={_.title}
-            className={cn('relative', {
-              'text-primary': isNavActive(_.href, path),
-            })}
+            className={cn('relative font-bold text-background', {})}
           >
             <h3 className="px-3 capitalize">
               <Link href={_.href}>{_.title}</Link>

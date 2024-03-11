@@ -23,3 +23,31 @@ type ModifiedImageProps = Partial<{
 export type ImgProps = ModifiedImageProps &
   Omit<ImageProps, OmittedImageProps> &
   Omit<React.ImgHTMLAttributes<HTMLImageElement>, OmittedImageProps>;
+
+export type HeroType = {
+  _id: string;
+  _rev: string;
+  _type: 'hero';
+  _createdAt: string;
+  _updatedAt: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  callToAction: string;
+  phoneNumber: string;
+  bulletPoints: string[];
+  backgroundImage: {
+    _type: 'image';
+    asset: {
+      _type: 'reference';
+      _ref: string;
+    };
+  };
+  mainImage: {
+    _type: 'image';
+    asset: {
+      _type: 'reference';
+      _ref: string;
+    };
+  };
+};
