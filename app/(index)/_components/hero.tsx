@@ -13,7 +13,7 @@ export async function Hero({ className, ...props }: HeroProps) {
 
   return (
     <div
-      className="relative rounded-3xl md:px-14 md:grid grid-cols-2 gap-10 px-6  py-10 max-sm:text-center text-background "
+      className="relative rounded-3xl md:px-14 md:grid grid-cols-2 gap-16 px-6  py-10 max-sm:text-center text-background "
       {...props}
     >
       <Img

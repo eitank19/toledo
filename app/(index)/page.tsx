@@ -7,7 +7,7 @@ export default async function IndexPage() {
   const formData = await client.fetch('*[_type=="form"][0]');
 
   return (
-    <section className="container py-6 space-y-6">
+    <section className="container py-6 md:py-16 space-y-6 md:space-y-24">
       <Suspense fallback={'loading ...'}>
         <Hero />
       </Suspense>

@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 import { ComponentSelector } from '@/components/component-selector';
-import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormMessage } from '@/components/ui/form';
-import { type FieldType, getDefaultValues, getFormSchema } from '@/lib/form';
+import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
+import { cn } from '@sohanemon/utils';
 
 const fields: FieldType[] = [
   {
@@ -26,18 +26,21 @@ const fields: FieldType[] = [
     type: 'number',
     schema: z.string().min(8),
     placeholder: 'מס’ טלפון *',
+    cn: 'md:order-last',
   },
   {
     name: 'role',
     type: 'string',
     schema: z.string().optional(),
     placeholder: 'תפקיד',
+    cn: 'md:order-last',
   },
   {
     name: 'topic',
     type: 'text',
     schema: z.string().optional(),
     placeholder: 'באיזה נושא תרצו שנחזור אליכם?',
+    cn: 'md:row-span-2 md:col-span-2 md:[&>input]:h-full md:[&>input]:pb-20',
   },
 ];
 
@@ -59,18 +62,24 @@ export function FormComponent({
   return (
     <Form {...form}>
       <form
-        className="rounded-2xl bg-card p-6"
+        className="rounded-2xl md:grid grid-cols-4 bg-card p-6"
         onSubmit={form.handleSubmit(onSubmit, console.log)}
       >
-        <h2 className="font-black text-2xl">{formData?.title}</h2>
-        <p>{formData?.description}</p>
+        <h2 className="font-black col-span-full text-2xl">{formData?.title}</h2>
+        <p className="col-span-full md:mb-2">{formData?.description}</p>
+
         {fields.map((formField) => {
           return (
             <FormField
               key={formField.name}
               name={formField.name}
               render={({ field: controllerProps }) => (
-                <FormItem className="my-5 relative z-10">
+                <FormItem
+                  className={cn(
+                    'my-5 md:my-2 md:mx-2 relative z-10',
+                    formField.cn
+                  )}
+                >
                   <ComponentSelector
                     controllerProps={controllerProps}
                     formField={formField}
@@ -81,9 +90,9 @@ export function FormComponent({
             />
           );
         })}
-        <div className="flex justify-center !-mt-8 bg-background py-6 rounded-b-2xl">
+        {/* <div className="flex justify-center !-mt-8 bg-background py-6 rounded-b-2xl">
           <Button className="w-32">שליחה</Button>
-        </div>
+        </div> */}
       </form>
     </Form>
   );
