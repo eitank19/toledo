@@ -6,7 +6,7 @@ import * as z from 'zod';
 import { ComponentSelector } from '@/components/component-selector';
 import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormMessage } from '@/components/ui/form';
-import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
+import { type FieldType, getDefaultValues, getFormSchema } from '@/lib/form';
 
 const fields: FieldType[] = [
   {
