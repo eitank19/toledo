@@ -14,7 +14,7 @@ const nextConfig = {
       },
     ],
   },
-  cacheMaxMemorySize: 5000,
+  cacheMaxMemorySize: 1024 * 1024 * 100,
   logging: {
     fetches: {
       fullUrl: true,

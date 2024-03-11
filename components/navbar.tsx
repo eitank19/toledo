@@ -1,13 +1,12 @@
 'use client';
 
-import { siteConfig } from '@/config/site';
 import useNavToggle from '@/hooks/nav-toggle';
 import { cn, isNavActive } from '@sohanemon/utils';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import * as React from 'react';
 
 import { client } from '@/sanity/lib/client';
+import Link from 'next/link';
 import { Brand } from './brand';
 import { Motion } from './motion';
 import { Button } from './ui/button';
@@ -20,9 +19,8 @@ export function Navbar() {
     <Motion
       animate={hidden ? 'top' : 'visible'}
       transition={{ delay: 0.1, duration: 0.5 }}
-      className={cn('fixed inset-x-0 top-0 z-40 ', {
-        'shadow-lg shadow-foreground/10  bg-background/50 backdrop-blur-md':
-          leaved,
+      className={cn('fixed inset-x-0 top-0 bg-primary z-40 ', {
+        'shadow-lg shadow-primary/10  bg-primary/50 backdrop-blur-md': leaved,
       })}
     >
       <nav className="container flex items-center justify-between py-4">
@@ -36,9 +34,7 @@ export function Navbar() {
 
 const NavContent = () => {
   const path = usePathname();
-  const links = React.use(client.fetch('*[_type=="info"][0]{links}'));
-  console.log('💬 ~ NavContent ~ links:', links);
-
+  const { links } = React.use(client.fetch('*[_type=="info"][0]{links}'));
   return (
     <>
       <ul className="ml-20 flex items-center gap-12 max-lg:hidden ">
