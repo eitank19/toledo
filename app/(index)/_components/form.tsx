@@ -12,7 +12,7 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form';
-import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
+import { type FieldType, getDefaultValues, getFormSchema } from '@/lib/form';
 import { cn } from '@sohanemon/utils';
 
 const fields: FieldType[] = [
