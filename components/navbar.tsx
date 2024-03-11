@@ -24,8 +24,12 @@ export function Navbar() {
       })}
     >
       <nav className="container flex items-center justify-between py-5">
-        <Brand />
-        <NavContent />
+        <React.Suspense>
+          <Brand />
+        </React.Suspense>
+        <React.Suspense>
+          <NavContent />
+        </React.Suspense>
         <Button>השאירו פרטים</Button>
       </nav>
     </Motion>

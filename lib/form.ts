@@ -6,7 +6,7 @@ export type FieldType = {
   type: string;
   defaultValue?: any;
   schema?: z.ZodType;
-  placeholder: string
+  placeholder: string;
 };
 
 export function getDefaultValues(fields: FieldType[]) {

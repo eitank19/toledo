@@ -46,8 +46,9 @@ const fields: FieldType[] = [
 const FormSchema = getFormSchema(fields);
 const defaultValues = getDefaultValues(fields);
 
-export function FormComponent() {
-  const data = React.use(client.fetch('*[_type=="form"][0]'));
+export function FormComponent({
+  formData,
+}: { formData: { title: string; description: string } }) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues,
@@ -63,8 +64,8 @@ export function FormComponent() {
         className="rounded-2xl bg-card p-6"
         onSubmit={form.handleSubmit(onSubmit, console.log)}
       >
-        <h2 className="font-black text-2xl">{data?.title}</h2>
-        <p>{data?.description}</p>
+        <h2 className="font-black text-2xl">{formData?.title}</h2>
+        <p>{formData?.description}</p>
         {fields.map((formField) => {
           return (
             <FormField
