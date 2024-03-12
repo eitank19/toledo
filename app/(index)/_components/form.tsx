@@ -12,7 +12,7 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form';
-import { type FieldType, getDefaultValues, getFormSchema } from '@/lib/form';
+import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
 import { cn } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
 import { sendEmail } from '../_lib/send-mail';
@@ -28,7 +28,7 @@ const fields: FieldType[] = [
     name: 'email',
     type: 'email',
     schema: z.string().email(),
-    placeholder: 'דוא"ל',
+    placeholder: 'דוא"ל *',
   },
   {
     name: 'phone',
