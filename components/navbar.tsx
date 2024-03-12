@@ -8,7 +8,7 @@ import { client } from '@/sanity/lib/client';
 import Link from 'next/link';
 import { Brand } from './brand';
 import { Motion } from './motion';
-import { buttonVariants } from './ui/button';
+import { Button } from './ui/button';
 
 export function Navbar() {
   return (
@@ -24,12 +24,16 @@ export function Navbar() {
         <React.Suspense>
           <NavContent />
         </React.Suspense>
-        <Link
-          className={cn(buttonVariants(), 'relative z-20')}
-          href="#send-mail"
+
+        <Button
+          onClick={() =>
+            document
+              .getElementById('send-mail')
+              ?.scrollIntoView({ behavior: 'smooth' })
+          }
         >
           השאירו פרטים
-        </Link>
+        </Button>
       </nav>
     </Motion>
   );
