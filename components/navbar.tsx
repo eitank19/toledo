@@ -8,7 +8,7 @@ import { client } from '@/sanity/lib/client';
 import Link from 'next/link';
 import { Brand } from './brand';
 import { Motion } from './motion';
-import { Button } from './ui/button';
+import { buttonVariants } from './ui/button';
 
 export function Navbar() {
   return (
@@ -24,8 +24,8 @@ export function Navbar() {
         <React.Suspense>
           <NavContent />
         </React.Suspense>
-        <Link href="/#form">
-          <Button>השאירו פרטים</Button>
+        <Link className={cn(buttonVariants())} href="/#form">
+          השאירו פרטים
         </Link>
       </nav>
     </Motion>

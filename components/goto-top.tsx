@@ -34,7 +34,7 @@ export function GoToTop() {
         title="Go To Top"
         onClick={goToTop}
       >
-        <div className="grid size-full place-content-center rounded-full bg-primary/80 text-foreground shadow-md hover:bg-primary">
+        <div className="grid size-full place-content-center rounded-full bg-primary/80 text-background shadow-md hover:bg-primary">
           <svg
             className="size-4 md:size-6"
             fill="currentColor"
