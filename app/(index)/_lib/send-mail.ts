@@ -9,7 +9,8 @@ export const sendEmail = async (data: any) => {
       {
         phone: data.phone,
         email: data.email,
-        title: data.name,
+        title: data.role,
+        name: data.name,
         message: data.topic,
       },
       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
