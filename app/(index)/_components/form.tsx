@@ -12,7 +12,7 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form';
-import { type FieldType, getDefaultValues, getFormSchema } from '@/lib/form';
+import { getDefaultValues, getFormSchema, type FieldType } from '@/lib/form';
 import { cn } from '@sohanemon/utils';
 import { Iconify } from '@sohanemon/utils/components';
 import { sendEmail } from '../_lib/send-mail';
@@ -71,6 +71,7 @@ export function FormComponent({
   return (
     <Form {...form}>
       <form
+        id="form"
         className="rounded-2xl md:grid grid-cols-4 relative bg-card p-6"
         onSubmit={form.handleSubmit(onSubmit, console.log)}
       >

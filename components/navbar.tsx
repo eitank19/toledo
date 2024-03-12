@@ -24,7 +24,9 @@ export function Navbar() {
         <React.Suspense>
           <NavContent />
         </React.Suspense>
-        <Button>השאירו פרטים</Button>
+        <Link href="#form">
+          <Button>השאירו פרטים</Button>
+        </Link>
       </nav>
     </Motion>
   );

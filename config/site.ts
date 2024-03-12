@@ -16,11 +16,7 @@ export const siteConfig: {
 } = {
   remoteUrl: `https://${packageJson.name.toLowerCase()}.vercel.app`,
   metadata: {
-    title: {
-      default: packageJson.name.toUpperCase(),
-      template: `%s - ${packageJson.name.toUpperCase()}`,
-    },
-
+    title: 'טולדו | קבלן בנייה בצפון',
     description: packageJson.description,
     icons: {
       icon: favicon,
