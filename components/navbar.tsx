@@ -24,7 +24,10 @@ export function Navbar() {
         <React.Suspense>
           <NavContent />
         </React.Suspense>
-        <Link className={cn(buttonVariants())} href="/#form">
+        <Link
+          className={cn(buttonVariants(), 'relative z-20')}
+          href="#send-mail"
+        >
           השאירו פרטים
         </Link>
       </nav>

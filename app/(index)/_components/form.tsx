@@ -71,12 +71,11 @@ export function FormComponent({
   return (
     <Form {...form}>
       <form
-        id="form"
         className="rounded-2xl md:grid grid-cols-4 relative bg-card p-6"
         onSubmit={form.handleSubmit(onSubmit, console.log)}
       >
         <h2 className="font-black col-span-full text-2xl">{formData?.title}</h2>
-        <p className="col-span-full md:mb-2">{formData?.description}</p>
+        <p id='send-mail' className="col-span-full md:mb-2">{formData?.description}</p>
 
         {fields.map((formField) => {
           return (
