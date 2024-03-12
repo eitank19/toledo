@@ -1,6 +1,5 @@
 'use client';
 
-import useNavToggle from '@/hooks/nav-toggle';
 import { cn, isNavActive } from '@sohanemon/utils';
 import { usePathname } from 'next/navigation';
 import * as React from 'react';
@@ -12,16 +11,11 @@ import { Motion } from './motion';
 import { Button } from './ui/button';
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { hidden, leaved } = useNavToggle();
-
   return (
     <Motion
-      animate={hidden ? 'top' : 'visible'}
+      initial={{ y: -20, opacity: 0 }}
       transition={{ delay: 0.1, duration: 0.5 }}
-      className={cn('sticky inset-x-0 top-0 bg-primary z-40 ', {
-        'shadow-lg shadow-primary/10  bg-primary/50 backdrop-blur-md': leaved,
-      })}
+      className={cn('sticky inset-x-0 top-0 bg-primary z-40 ')}
     >
       <nav className="container flex items-center justify-between py-5">
         <React.Suspense fallback={'logo'}>
