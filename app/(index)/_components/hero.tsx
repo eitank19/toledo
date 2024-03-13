@@ -4,6 +4,7 @@ import { client } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import type { HeroType } from '@/types/index.types';
 import { Iconify } from '@sohanemon/utils/components';
+import Link from 'next/link';
 import type * as React from 'react';
 
 type HeroProps = React.ComponentProps<'div'>;
@@ -33,11 +34,12 @@ export async function Hero({ className, ...props }: HeroProps) {
         <p className="font-black py-2">{data.description}</p>
         <div className="flex gap-5 max-md:flex-col items-center justify-between">
           <div className="font-black">{data.phoneNumber}</div>
-          <Button variant={'secondary'} className="w-fit">
-            {' '}
-            ישר לווצאפ{' '}
-            <Iconify icon="mingcute:whatsapp-fill" className="text-lg" />
-          </Button>
+          <Link href={data.callToAction} target="_blank">
+            <Button variant={'secondary'} className="w-fit">
+              ישר לווצאפ{' '}
+              <Iconify icon="mingcute:whatsapp-fill" className="text-lg" />
+            </Button>
+          </Link>
         </div>
       </div>
       <Img
