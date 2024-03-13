@@ -19,7 +19,7 @@ export async function Hero({ className, ...props }: HeroProps) {
     >
       <Img
         src={urlForImage(data?.backgroundImage)}
-        className="absolute object-cover -z-10 inset-0 size-full rounded-2xl"
+        className="absolute brightness-50 object-cover -z-10 inset-0 size-full rounded-2xl"
       />
       <div className="space-y-5">
         <h3 className="font-medium">{data.subtitle}</h3>
