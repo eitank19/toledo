@@ -26,6 +26,7 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
         <GalleryCarousel images={data.gallery} />
       </div>
       <Article image={data.gallery[0] || {}} article={data.article} />
+      <br />
       <Faq faqs={data.article.faq} />
       <div className="h-32" />
       <Suspense fallback={'loading ...'}>
