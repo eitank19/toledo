@@ -3,11 +3,11 @@ import { Img } from '@/components/image';
 import { Motion } from '@/components/motion';
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from '@/components/ui/carousel';
 import { urlForImage } from '@/sanity/lib/image';
 import { cn } from '@sohanemon/utils';
