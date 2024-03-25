@@ -42,15 +42,21 @@ export function Navbar() {
           <Phone />
         </React.Suspense>
         {!isMenuOpen ? (
-          <Button size="icon-lg" onClick={() => setIsMenuOpen(true)}>
-            <Iconify className="lg:hidden text-2xl" icon="mdi:menu" />
+          <Button
+            size="icon-lg"
+            className="lg:hidden"
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <Iconify className="text-2xl" icon="mdi:menu" />
           </Button>
         ) : (
-          <Iconify
-            className="cursor-pointer text-foreground lg:hidden"
-            icon="lucide:x"
+          <Button
+            size="icon-lg"
             onClick={() => setIsMenuOpen(false)}
-          />
+            className="lg:hidden"
+          >
+            <Iconify className="text-3xl" icon="mdi:close" />
+          </Button>
         )}
       </nav>
     </Motion>
