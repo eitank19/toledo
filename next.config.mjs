@@ -22,7 +22,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   compiler: { removeConsole: process.env.NODE_ENV === 'production' },
-  typescript: { ignoreBuildErrors: process.env.NODE_ENV === 'development' },
+  typescript: { ignoreBuildErrors: process.env.NODE_ENV === 'production' },
 };
 
 export default nextConfig;

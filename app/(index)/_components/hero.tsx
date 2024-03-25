@@ -32,10 +32,13 @@ export async function Hero({ className, ...props }: HeroProps) {
           ))}
         </ul>
         <p className="font-black py-2">{data.description}</p>
-        <div className="flex gap-5 max-md:flex-col items-center justify-between">
-          <div className="font-black">{data.phoneNumber}</div>
+        <div className="flex gap-7 max-md:flex-col items-center">
+          <Button size="lg" variant={'outline'} className="w-fit px-5">
+            שנחזור אליכם?
+            <Img src="/public/note-favorite.svg" width={21} />
+          </Button>
           <Link href={data.callToAction} target="_blank">
-            <Button variant={'secondary'} className="w-fit">
+            <Button size="lg" className="w-fit">
               ישר לווצאפ{' '}
               <Iconify icon="mingcute:whatsapp-fill" className="text-lg" />
             </Button>

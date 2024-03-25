@@ -5,19 +5,22 @@ import { usePathname } from 'next/navigation';
 import * as React from 'react';
 
 import { client } from '@/sanity/lib/client';
+import type { HeroType } from '@/types/index.types';
 import Link from 'next/link';
 import { Brand } from './brand';
+import { Img } from './image';
 import { Motion } from './motion';
 import { Button } from './ui/button';
 
 export function Navbar() {
+  const data = React.use(client.fetch<HeroType>('*[_type=="hero"][0]'));
   return (
     <Motion
       initial={{ y: -20, opacity: 0 }}
       transition={{ delay: 0.1, duration: 0.5 }}
       className={cn('sticky inset-x-0 top-0 bg-primary z-40 ')}
     >
-      <nav className="container flex items-center justify-between py-5">
+      <nav className="container flex items-center gap-5 justify-between py-5">
         <React.Suspense fallback={'logo'}>
           <Brand />
         </React.Suspense>
@@ -34,6 +37,11 @@ export function Navbar() {
         >
           השאירו פרטים
         </Button>
+        <Link href={`tel:${data?.phoneNumber}`}>
+          <Button size="icon-lg">
+            <Img src="/public/call-calling.svg" width={18} />
+          </Button>
+        </Link>
       </nav>
     </Motion>
   );
