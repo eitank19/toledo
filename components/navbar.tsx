@@ -29,19 +29,21 @@ export function Navbar() {
         <React.Suspense>
           <NavContent />
         </React.Suspense>
-        <Button
-          className="max-md:hidden"
-          onClick={() =>
-            document
-              .getElementById('send-mail')
-              ?.scrollIntoView({ behavior: 'smooth' })
-          }
-        >
-          השאירו פרטים
-        </Button>
-        <React.Suspense>
-          <Phone />
-        </React.Suspense>
+        <div className='flex gap-5 max-md:grow'>
+          <Button
+            className="max-md:hidden"
+            onClick={() =>
+              document
+                .getElementById('send-mail')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            השאירו פרטים
+          </Button>
+          <React.Suspense>
+            <Phone />
+          </React.Suspense>
+        </div>
         {!isMenuOpen ? (
           <Button
             size="icon-lg"
@@ -105,7 +107,7 @@ const Phone = React.memo(() => {
   );
   return (
     <Link
-      className="grow shrink-0 flex justify-end"
+      className="max-md:grow shrink-0 flex justify-end"
       href={`tel:${data?.phoneNumber}`}
     >
       <Button size="icon-lg">

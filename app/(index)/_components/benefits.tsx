@@ -20,7 +20,7 @@ export async function Benefits({ className, ...props }: BenefitsProps) {
         שיפוצים ובנייה
       </p>
 
-      <div className="grid gap-9 mt-10 md:gap-11 grid-cols-1 md:grid-cols-3 ">
+      <div className="grid gap-7 mt-10 md:gap-11 grid-cols-1 md:grid-cols-3 ">
         {benefits.map((benefit) => (
           <div className="flex bg-card gap-5 p-6 rounded-lg" key={benefit._id}>
             <Img
@@ -30,7 +30,7 @@ export async function Benefits({ className, ...props }: BenefitsProps) {
             />
             <div>
               <h4 className="font-bold text-base">{benefit.title}</h4>
-              <p className='leading-snug'>{benefit.description}</p>
+              <p className="leading-snug">{benefit.description}</p>
               <Link
                 href={benefit.link.href}
                 className="font-bold text-base underline underline-offset-2"
