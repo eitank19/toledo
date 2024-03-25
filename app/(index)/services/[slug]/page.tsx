@@ -27,7 +27,7 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
       </div>
       <Article image={data.gallery[0] || {}} article={data.article} />
       <Faq faqs={data.article.faq} />
-      <div className='h-32'/>
+      <div className="h-32" />
       <Suspense fallback={'loading ...'}>
         <FormComponent formData={formData} />
       </Suspense>
