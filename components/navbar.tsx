@@ -7,6 +7,7 @@ import * as React from 'react';
 import { client } from '@/sanity/lib/client';
 import type { HeroType } from '@/types/index.types';
 import { Iconify } from '@sohanemon/utils/components';
+import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Brand } from './brand';
 import { Img } from './image';
@@ -59,6 +60,13 @@ export function Navbar() {
           </Button>
         )}
       </nav>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <React.Suspense fallback={<div className="blur-md" />}>
+            <NavContentMob setIsMenuOpen={setIsMenuOpen} />
+          </React.Suspense>
+        )}
+      </AnimatePresence>
     </Motion>
   );
 }
@@ -94,10 +102,36 @@ const NavContent = React.memo(() => {
 const Phone = React.memo(() => {
   const data = React.use(client.fetch<HeroType>('*[_type=="hero"][0]'));
   return (
-    <Link className='grow shrink-0 flex justify-end' href={`tel:${data?.phoneNumber}`}>
+    <Link
+      className="grow shrink-0 flex justify-end"
+      href={`tel:${data?.phoneNumber}`}
+    >
       <Button size="icon-lg">
         <Img src="/public/call-calling.svg" width={18} />
       </Button>
     </Link>
   );
 });
+
+const NavContentMob = React.memo(
+  ({ setIsMenuOpen }: { setIsMenuOpen: Function }) => {
+    const { links } = React.use(client.fetch('*[_type=="info"][0]{links}'));
+    return (
+      <Motion
+        key={'header'}
+        animate="visible"
+        className="absolute items-center backdrop-blur-md z-40 h-[calc(100vh-5rem)] py-10 inset-x-0 flex flex-col gap-8 bg-foreground/60 p-5 lg:hidden"
+        exit={'left'}
+        initial="hidden"
+      >
+        {links.map((_: any) => (
+          <button key={_.title} onClick={() => setIsMenuOpen(false)}>
+            <span className="capitalize font-black text-2xl text-background hover:underline underline-offset-2">
+              <Link href={_.href}>{_.title}</Link>
+            </span>
+          </button>
+        ))}
+      </Motion>
+    );
+  }
+);
