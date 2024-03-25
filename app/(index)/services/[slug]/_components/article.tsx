@@ -18,7 +18,9 @@ export const Article = ({
         <h2 className="font-black pb-4 md:pb-3 text-balance text-2xl max-md:text-center">
           {article.title}
         </h2>
-        <p className="text-base max-md:text-center text-pretty">{article.content}</p>
+        <p className="text-base max-md:text-center text-pretty">
+          {article.content}
+        </p>
       </div>
     </div>
   );
