@@ -70,7 +70,6 @@ export interface Homepage {
   slug: Slug;
 }
 
-
 export interface Asset {
   _ref: string;
   _type: string;

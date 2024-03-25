@@ -13,9 +13,7 @@ export default async function IndexPage() {
       <Suspense fallback={'loading ...'}>
         <Hero />
       </Suspense>
-      <Suspense fallback={'loading ...'}>
-        <Services />
-      </Suspense>
+      <Services />
       <Suspense fallback={'loading ...'}>
         <FormComponent formData={formData} />
       </Suspense>
