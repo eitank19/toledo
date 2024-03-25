@@ -100,7 +100,9 @@ const NavContent = React.memo(() => {
 });
 
 const Phone = React.memo(() => {
-  const data = React.use(client.fetch<HeroType>('*[_type=="hero"][0]'));
+  const data = React.use(
+    client.fetch<HeroType>('*[_type=="hero"][0]{phoneNumber}')
+  );
   return (
     <Link
       className="grow shrink-0 flex justify-end"
@@ -116,6 +118,11 @@ const Phone = React.memo(() => {
 const NavContentMob = React.memo(
   ({ setIsMenuOpen }: { setIsMenuOpen: Function }) => {
     const { links } = React.use(client.fetch('*[_type=="info"][0]{links}'));
+
+    const data = React.use(
+      client.fetch<HeroType>('*[_type=="hero"][0]{phoneNumber}')
+    );
+
     return (
       <Motion
         key={'header'}
@@ -131,6 +138,10 @@ const NavContentMob = React.memo(
             </span>
           </button>
         ))}
+        <Button size={'lg'}>
+          התקשרו {data?.phoneNumber}
+          <Img src="/public/call-calling.svg" width={18} />
+        </Button>
       </Motion>
     );
   }
