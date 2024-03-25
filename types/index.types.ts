@@ -114,23 +114,22 @@ export interface BenefitType {
   _updatedAt: Date;
 }
 
-
 export interface Link {
   href: string;
   label: string;
 }
 
 export interface LocationType {
-    _createdAt: Date;
-    _id:        string;
-    _rev:       string;
-    _type:      string;
-    _updatedAt: Date;
-    image:      Image;
-    locations:  string[];
+  _createdAt: Date;
+  _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: Date;
+  image: Image;
+  locations: string[];
 }
 
 export interface Asset {
-    _ref:  string;
-    _type: string;
+  _ref: string;
+  _type: string;
 }
