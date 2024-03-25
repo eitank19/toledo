@@ -42,6 +42,9 @@ export function GalleryCarousel({
 
   return (
     <div className="container py-14" {...props}>
+      <h2 className="font-black text-balance text-2xl text-center">
+        שיראו קצת פרויקטים שלנו
+      </h2>
       <Carousel
         setApi={setApi}
         className="mt-7"
