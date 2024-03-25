@@ -29,7 +29,7 @@ export async function Services({ className, ...props }: ServicesProps) {
           שיפוצים ובנייה
         </p>
         <Carousel
-        className='mt-7'
+          className="mt-7"
           opts={{
             align: 'start',
             loop: true,

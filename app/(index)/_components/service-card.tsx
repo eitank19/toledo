@@ -25,8 +25,8 @@ export function ServiceCard({
       <main className="bg-background text-foreground overflow-hidden rounded-xl">
         <div className="flex flex-col px-3 items-center py-7">
           <Img width={70} src={urlForImage(icon)} />
-          <h3 className='font-bold pt-3 pb-1'>{name}</h3>
-          <p className='text-center leading-snug line-clamp-3'>{description}</p>
+          <h3 className="font-bold pt-3 pb-1">{name}</h3>
+          <p className="text-center leading-snug line-clamp-3">{description}</p>
         </div>
         <Link
           className="bg-accent text-background flex py-6 justify-center gap-2 items-center font-bold"
