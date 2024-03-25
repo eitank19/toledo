@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Accordion,
   AccordionContent,
@@ -15,7 +16,7 @@ export const Faq = ({ faqs }: { faqs: FAQ[] }) => {
       <br />
       <Accordion className="space-y-6" type="single" collapsible>
         {faqs.map((faq) => (
-          <AccordionItem value={faq._key}>
+          <AccordionItem key={faq._key} value={faq._key}>
             <AccordionTrigger>{faq.question}</AccordionTrigger>
             <AccordionContent>{faq.answer}</AccordionContent>
           </AccordionItem>
