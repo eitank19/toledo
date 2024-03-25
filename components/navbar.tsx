@@ -24,6 +24,7 @@ export function Navbar() {
         <Brand />
         <NavContent />
         <Button
+          className="max-md:hidden"
           onClick={() =>
             document
               .getElementById('send-mail')

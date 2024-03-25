@@ -14,7 +14,7 @@ export async function Hero({ className, ...props }: HeroProps) {
 
   return (
     <div
-      className="relative rounded-3xl md:px-14 md:grid grid-cols-2 gap-16 px-6  py-10 max-sm:text-center text-background "
+      className="relative rounded-3xl md:px-14 md:grid grid-cols-2 gap-16 px-6 max-md:pb-7 py-10 max-sm:text-center text-background "
       {...props}
     >
       <Img
@@ -32,14 +32,22 @@ export async function Hero({ className, ...props }: HeroProps) {
           ))}
         </ul>
         <p className="font-black py-2">{data.description}</p>
-        <div className="flex gap-7 max-md:flex-col items-center">
-          <Button size="lg" variant={'outline'} className="w-fit px-5">
+        <div className="flex gap-5 md:gap-7 max-md:flex-col items-center">
+          <Button
+            size="lg"
+            variant={'outline'}
+            className="w-fit max-md:flex max-md:w-full px-5"
+          >
             שנחזור אליכם?
             <Img src="/public/note-favorite.svg" width={21} />
           </Button>
-          <Link href={data.callToAction} target="_blank">
-            <Button size="lg" className="w-fit">
-              ישר לווצאפ{' '}
+          <Link
+            className="max-md:w-full max-md:flex"
+            href={data.callToAction}
+            target="_blank"
+          >
+            <Button size="lg" className="w-fit max-md:flex max-md:w-full">
+              פנייה בווצאפ
               <Iconify icon="mingcute:whatsapp-fill" className="text-lg" />
             </Button>
           </Link>
