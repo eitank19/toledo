@@ -16,10 +16,12 @@ export async function generateMetadata({ params: { slug } }: PageProps) {
 
 export default async function SlugPage({ params: { slug } }: PageProps) {
   const data = await client.fetch<ServicePage>(
-    `*[_type=="services" && slug.current==${slug}][0].servicePage`
+    `*[_type=="services" && homepage.slug.current=="${slug}"][0].servicePage`
   );
   const formData = await client.fetch('*[_type=="form"][0]');
+
   return (
+
     <main className="container">
       <Hero {...data} />
       <div className="bg-primary w-screen -left-1/2 translate-x-1/2 text-background  relative">
