@@ -1,5 +1,6 @@
 import { client } from '@/sanity/lib/client';
 import type { PageProps, ServicePage } from '@/types/index.types';
+import { Article } from './_components/article';
 import { GalleryCarousel } from './_components/gallery-carousel';
 import { Hero } from './_components/hero';
 
@@ -20,6 +21,7 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
       <div className="bg-primary w-screen -left-1/2 translate-x-1/2 text-background  relative">
         <GalleryCarousel images={data.gallery} />
       </div>
+      <Article image={data.gallery[0] || {}} article={data.article} />
     </main>
   );
 }
