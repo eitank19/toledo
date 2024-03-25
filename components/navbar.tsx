@@ -21,13 +21,8 @@ export function Navbar() {
       className={cn('sticky inset-x-0 top-0 bg-primary z-40 ')}
     >
       <nav className="container flex items-center gap-5 justify-between py-5">
-        <React.Suspense fallback={'logo'}>
-          <Brand />
-        </React.Suspense>
-        <React.Suspense>
-          <NavContent />
-        </React.Suspense>
-
+        <Brand />
+        <NavContent />
         <Button
           onClick={() =>
             document
