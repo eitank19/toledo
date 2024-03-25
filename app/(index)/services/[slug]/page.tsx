@@ -21,7 +21,6 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
   const formData = await client.fetch('*[_type=="form"][0]');
 
   return (
-
     <main className="container">
       <Hero {...data} />
       <div className="bg-primary w-screen -left-1/2 translate-x-1/2 text-background  relative">
