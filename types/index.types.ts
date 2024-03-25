@@ -106,3 +106,25 @@ export interface Gallery {
   _type: string;
   asset: Asset;
 }
+
+export interface BenefitType {
+  _id: string;
+  _rev: string;
+  _type: string;
+  description: string;
+  icon: Image;
+  link: Link;
+  title: string;
+  _createdAt: Date;
+  _updatedAt: Date;
+}
+
+export interface Asset {
+  _ref: string;
+  _type: string;
+}
+
+export interface Link {
+  href: string;
+  label: string;
+}

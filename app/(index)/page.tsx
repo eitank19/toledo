@@ -1,6 +1,7 @@
 import { client } from '@/sanity/lib/client';
 import { Suspense } from 'react';
 import Loading from '../loading';
+import { Benefits } from './_components/benefits';
 import { FormComponent } from './_components/form';
 import { Hero } from './_components/hero';
 import { Services } from './_components/services';
@@ -13,7 +14,12 @@ export default async function IndexPage() {
       <Suspense fallback={'loading ...'}>
         <Hero />
       </Suspense>
-      <Services />
+      <Suspense>
+        <Services />
+      </Suspense>
+      <Suspense>
+        <Benefits />
+      </Suspense>
       <Suspense fallback={'loading ...'}>
         <FormComponent formData={formData} />
       </Suspense>

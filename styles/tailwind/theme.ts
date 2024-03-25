@@ -16,7 +16,7 @@ export const theme = plugin(() => {}, {
         md: '768px',
         lg: '1024px',
         xl: '1080px',
-        '2xl': '1080px',
+        '2xl': '1200px',
       },
     },
     extend: {
