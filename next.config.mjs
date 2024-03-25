@@ -14,8 +14,7 @@ const nextConfig = {
       },
     ],
   },
-  // todo: uncomment me
-  // cacheMaxMemorySize: 0,
+  cacheMaxMemorySize: 0,
   logging: {
     fetches: {
       fullUrl: true,
