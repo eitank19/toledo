@@ -2,9 +2,9 @@
 import { Img } from '@/components/image';
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
-  type CarouselApi,
 } from '@/components/ui/carousel';
 import { urlForImage } from '@/sanity/lib/image';
 import { cn } from '@sohanemon/utils';
