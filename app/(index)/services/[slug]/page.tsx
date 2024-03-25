@@ -1,5 +1,6 @@
 import { client } from '@/sanity/lib/client';
 import type { PageProps, ServicePage } from '@/types/index.types';
+import { GalleryCarousel } from './_components/gallery-carousel';
 import { Hero } from './_components/hero';
 
 export async function generateMetadata({ params: { slug } }: PageProps) {
@@ -14,8 +15,9 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
   );
 
   return (
-    <main className='container'>
+    <main className="container">
       <Hero {...data} />
+      <GalleryCarousel images={data.gallery} />
     </main>
   );
 }

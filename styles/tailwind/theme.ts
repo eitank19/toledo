@@ -20,6 +20,10 @@ export const theme = plugin(() => {}, {
       },
     },
     extend: {
+      height: {
+        'carousel-active': '414px',
+        'carousel-inactive': '336px',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
