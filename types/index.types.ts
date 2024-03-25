@@ -80,7 +80,7 @@ export interface ServicePage {
   benefits: string[];
   caption: string;
   description: string;
-  gallery: Gallery[];
+  gallery: Image[];
   title: string;
 }
 
@@ -94,12 +94,6 @@ export interface FAQ {
   _key: string;
   answer: string;
   question: string;
-}
-
-export interface Gallery {
-  _key: string;
-  _type: string;
-  asset: Asset;
 }
 
 export interface BenefitType {

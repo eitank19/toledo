@@ -14,7 +14,7 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
   );
 
   return (
-    <main>
+    <main className='container'>
       <Hero {...data} />
     </main>
   );

@@ -1,11 +1,12 @@
 import { Img } from '@/components/image';
+import { Motion } from '@/components/motion';
 import { Button } from '@/components/ui/button';
 import { client } from '@/sanity/lib/client';
 import type { HeroType, ServicePage } from '@/types/index.types';
 import { Iconify } from '@sohanemon/utils/components';
 import Link from 'next/link';
 import type * as React from 'react';
-
+import { Gallery } from './gallery';
 type HeroProps = React.ComponentProps<'div'> & ServicePage;
 
 export async function Hero({
@@ -21,8 +22,12 @@ export async function Hero({
     '*[_type=="hero"][0].callToAction'
   );
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-16" {...props}>
-      <div>
+    <div
+      className="grid items-center grid-cols-1 md:grid-cols-2 py-12 md:py-24  gap-16"
+      {...props}
+    >
+      <Gallery images={gallery.slice(0, 4)} />
+      <Motion initial={{ opacity: 0, scale: 0.3, y: 100, x: -100 }}>
         <p className="text-lg">{caption}</p>
         <h1 className="text-4xl font-black pb-4">{title}</h1>
         <p className="text-lg line-clamp-4 leading-snug">{description}</p>
@@ -55,7 +60,7 @@ export async function Hero({
             </Button>
           </Link>
         </div>
-      </div>
+      </Motion>
     </div>
   );
 }
