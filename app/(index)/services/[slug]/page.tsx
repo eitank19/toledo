@@ -17,7 +17,9 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
   return (
     <main className="container">
       <Hero {...data} />
-      <GalleryCarousel images={data.gallery} />
+      <div className="bg-primary w-screen -left-1/2 translate-x-1/2 text-background  relative">
+        <GalleryCarousel images={data.gallery} />
+      </div>
     </main>
   );
 }
