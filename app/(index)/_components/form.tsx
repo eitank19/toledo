@@ -71,7 +71,7 @@ export function FormComponent({
   return (
     <Form {...form}>
       <form
-        className="rounded-2xl md:grid grid-cols-4 relative bg-card p-6"
+        className="rounded-2xl text-background md:grid grid-cols-4 relative bg-primary p-6"
         onSubmit={form.handleSubmit(onSubmit, console.log)}
       >
         <h2 className="font-black col-span-full text-2xl">{formData?.title}</h2>
