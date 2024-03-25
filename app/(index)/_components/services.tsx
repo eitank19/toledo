@@ -27,7 +27,7 @@ export async function Services({ className, ...props }: ServicesProps) {
           עם הזמן גדלנו מעסק קטן ואיזורי לחברה מחוזית ומקיפה שמספקת מגוון שירותי
           שיפוצים ובנייה
         </p>
-        <ServiceCarousel services={services} />
+        <ServiceCarousel services={[].concat(...Array(5).fill(services))} />
       </div>
     </div>
   );
