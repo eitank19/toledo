@@ -51,3 +51,62 @@ export type HeroType = {
     };
   };
 };
+
+export interface ServiceType {
+  _createdAt: Date;
+  _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: Date;
+  homepage: Homepage;
+  servicePage: ServicePage;
+}
+
+export interface Homepage {
+  description: string;
+  icon: Icon;
+  name: string;
+  slug: Slug;
+}
+
+export interface Icon {
+  _type: string;
+  asset: Asset;
+}
+
+export interface Asset {
+  _ref: string;
+  _type: string;
+}
+
+export interface Slug {
+  _type: string;
+  current: string;
+}
+
+export interface ServicePage {
+  article: Article;
+  benefits: string[];
+  caption: string;
+  description: string;
+  gallery: Gallery[];
+  title: string;
+}
+
+export interface Article {
+  content: string;
+  faq: FAQ[];
+  title: string;
+}
+
+export interface FAQ {
+  _key: string;
+  answer: string;
+  question: string;
+}
+
+export interface Gallery {
+  _key: string;
+  _type: string;
+  asset: Asset;
+}

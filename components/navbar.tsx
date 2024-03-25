@@ -128,7 +128,7 @@ const NavContentMob = React.memo(
         key={'header'}
         animate="visible"
         className="absolute items-center backdrop-blur-md z-40 h-[calc(100vh-5rem)] py-10 inset-x-0 flex flex-col gap-8 bg-foreground/60 p-5 lg:hidden"
-        exit={'left'}
+        exit={'bottom-full'}
         initial="hidden"
       >
         {links.map((_: any) => (
