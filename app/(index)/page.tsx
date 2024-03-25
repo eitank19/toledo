@@ -4,6 +4,7 @@ import Loading from '../loading';
 import { Benefits } from './_components/benefits';
 import { FormComponent } from './_components/form';
 import { Hero } from './_components/hero';
+import { Locations } from './_components/locations';
 import { Services } from './_components/services';
 
 export default async function IndexPage() {
@@ -19,6 +20,10 @@ export default async function IndexPage() {
       </Suspense>
       <Suspense>
         <Benefits />
+      </Suspense>
+      <br />
+      <Suspense>
+        <Locations />
       </Suspense>
       <Suspense fallback={'loading ...'}>
         <FormComponent formData={formData} />

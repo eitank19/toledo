@@ -29,7 +29,7 @@ export function Navbar() {
         <React.Suspense>
           <NavContent />
         </React.Suspense>
-        <div className='flex gap-5 max-md:grow'>
+        <div className="flex gap-5 max-md:grow">
           <Button
             className="max-md:hidden"
             onClick={() =>

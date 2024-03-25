@@ -70,11 +70,6 @@ export interface Homepage {
   slug: Slug;
 }
 
-export interface Asset {
-  _ref: string;
-  _type: string;
-}
-
 export interface Slug {
   _type: string;
   current: string;
@@ -119,12 +114,23 @@ export interface BenefitType {
   _updatedAt: Date;
 }
 
-export interface Asset {
-  _ref: string;
-  _type: string;
-}
 
 export interface Link {
   href: string;
   label: string;
+}
+
+export interface LocationType {
+    _createdAt: Date;
+    _id:        string;
+    _rev:       string;
+    _type:      string;
+    _updatedAt: Date;
+    image:      Image;
+    locations:  string[];
+}
+
+export interface Asset {
+    _ref:  string;
+    _type: string;
 }

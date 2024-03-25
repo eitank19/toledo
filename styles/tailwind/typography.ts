@@ -18,6 +18,7 @@ export const typography = plugin(
         base: 'clamp(1rem, 0.34vw + 0.91rem, 1.19rem)',
         lg: 'clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem)',
         xl: 'clamp(1.56rem, 1vw + 1.31rem, 2.11rem)',
+        '2xl': 'clamp(1.7rem, 1.33vw + 1.2rem, 2rem)',
       },
       extend: {
         fontFamily: fontVariables.reduce(
