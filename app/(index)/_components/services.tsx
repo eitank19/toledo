@@ -6,7 +6,9 @@ import type * as React from 'react';
 type ServicesProps = React.ComponentProps<'div'>;
 
 export async function Services({ className, ...props }: ServicesProps) {
-  const services = client.fetch<Homepage[]>('*[_type=="services"].homepage');
+  const services = await client.fetch<Homepage[]>(
+    '*[_type=="services"].homepage'
+  );
 
   return (
     <div

@@ -1,6 +1,7 @@
 import type { ImageProps } from 'next/image';
 import type { NextMiddleware } from 'next/server';
 import type * as React from 'react';
+import type { Image } from 'sanity';
 
 export type PageProps = Readonly<{
   params: { slug: string };
@@ -64,15 +65,11 @@ export interface ServiceType {
 
 export interface Homepage {
   description: string;
-  icon: Icon;
+  icon: Image;
   name: string;
   slug: Slug;
 }
 
-export interface Icon {
-  _type: string;
-  asset: Asset;
-}
 
 export interface Asset {
   _ref: string;
