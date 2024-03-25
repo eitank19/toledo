@@ -19,7 +19,7 @@ export default defineType({
           type: 'slug',
           options: {
             source: 'homepage.name',
-          }
+          },
         },
         {
           name: 'description',
@@ -48,8 +48,51 @@ export default defineType({
           type: 'string',
         },
         {
-          name: 'icon',
-          type: 'image',
+          name: 'benefits',
+          type: 'array',
+          of: [{ type: 'string' }],
+        },
+        {
+          name: 'gallery',
+          type: 'array',
+          of: [
+            {
+              type: 'image',
+            },
+          ],
+        },
+        {
+          name: 'article',
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              type: 'string',
+            },
+            {
+              name: 'content',
+              type: 'text',
+            },
+            {
+              name: 'faq',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  fields: [
+                    {
+                      name: 'question',
+                      type: 'string',
+                    },
+                    {
+                      name: 'answer',
+                      type: 'text',
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
         },
       ],
     },
