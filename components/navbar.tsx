@@ -21,7 +21,7 @@ export function Navbar() {
       transition={{ delay: 0.1, duration: 0.5 }}
       className={cn('sticky inset-x-0 top-0 bg-primary z-40 ')}
     >
-      <nav className="container flex items-center gap-5 justify-between py-5">
+      <nav className="container flex items-center gap-5 md:justify-between py-5">
         <React.Suspense>
           <Brand />
         </React.Suspense>
@@ -94,7 +94,7 @@ const NavContent = React.memo(() => {
 const Phone = React.memo(() => {
   const data = React.use(client.fetch<HeroType>('*[_type=="hero"][0]'));
   return (
-    <Link href={`tel:${data?.phoneNumber}`}>
+    <Link className='grow shrink-0 flex justify-end' href={`tel:${data?.phoneNumber}`}>
       <Button size="icon-lg">
         <Img src="/public/call-calling.svg" width={18} />
       </Button>
