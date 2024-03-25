@@ -6,6 +6,7 @@ import * as React from 'react';
 
 import { client } from '@/sanity/lib/client';
 import type { HeroType } from '@/types/index.types';
+import { Iconify } from '@sohanemon/utils/components';
 import Link from 'next/link';
 import { Brand } from './brand';
 import { Img } from './image';
@@ -13,7 +14,7 @@ import { Motion } from './motion';
 import { Button } from './ui/button';
 
 export function Navbar() {
-  const data = React.use(client.fetch<HeroType>('*[_type=="hero"][0]'));
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
     <Motion
       initial={{ y: -20, opacity: 0 }}
@@ -21,8 +22,12 @@ export function Navbar() {
       className={cn('sticky inset-x-0 top-0 bg-primary z-40 ')}
     >
       <nav className="container flex items-center gap-5 justify-between py-5">
-        <Brand />
-        <NavContent />
+        <React.Suspense>
+          <Brand />
+        </React.Suspense>
+        <React.Suspense>
+          <NavContent />
+        </React.Suspense>
         <Button
           className="max-md:hidden"
           onClick={() =>
@@ -33,17 +38,26 @@ export function Navbar() {
         >
           השאירו פרטים
         </Button>
-        <Link href={`tel:${data?.phoneNumber}`}>
-          <Button size="icon-lg">
-            <Img src="/public/call-calling.svg" width={18} />
+        <React.Suspense>
+          <Phone />
+        </React.Suspense>
+        {!isMenuOpen ? (
+          <Button size="icon-lg" onClick={() => setIsMenuOpen(true)}>
+            <Iconify className="lg:hidden text-2xl" icon="mdi:menu" />
           </Button>
-        </Link>
+        ) : (
+          <Iconify
+            className="cursor-pointer text-foreground lg:hidden"
+            icon="lucide:x"
+            onClick={() => setIsMenuOpen(false)}
+          />
+        )}
       </nav>
     </Motion>
   );
 }
 
-const NavContent = () => {
+const NavContent = React.memo(() => {
   const path = usePathname();
   const { links } = React.use(client.fetch('*[_type=="info"][0]{links}'));
   return (
@@ -69,4 +83,15 @@ const NavContent = () => {
       </ul>
     </>
   );
-};
+});
+
+const Phone = React.memo(() => {
+  const data = React.use(client.fetch<HeroType>('*[_type=="hero"][0]'));
+  return (
+    <Link href={`tel:${data?.phoneNumber}`}>
+      <Button size="icon-lg">
+        <Img src="/public/call-calling.svg" width={18} />
+      </Button>
+    </Link>
+  );
+});

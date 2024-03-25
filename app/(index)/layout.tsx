@@ -1,7 +1,7 @@
 import { Footer } from '@/components/footer';
 import { GoToTop } from '@/components/goto-top';
 import { Navbar } from '@/components/navbar';
-import * as React from 'react';
+import type * as React from 'react';
 
 interface IndexLayoutProps {
   children: React.ReactNode;
@@ -10,9 +10,7 @@ interface IndexLayoutProps {
 export default function IndexLayout({ children }: IndexLayoutProps) {
   return (
     <>
-      <React.Suspense>
-        <Navbar />
-      </React.Suspense>
+      <Navbar />
       <main className="flex-1">{children}</main>
       <GoToTop />
       <Footer />

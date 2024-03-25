@@ -3,15 +3,15 @@ import { cn } from '@sohanemon/utils';
 import Link from 'next/link';
 
 import { urlForImage } from '@/sanity/lib/image';
-import type { HtmlHTMLAttributes } from 'react';
+import * as React from 'react';
 import { Img } from './image';
 
 type CompType = {};
 
-export async function Brand({
+async function _Brand({
   className,
   ...props
-}: HtmlHTMLAttributes<HTMLAnchorElement> & CompType) {
+}: React.HtmlHTMLAttributes<HTMLAnchorElement> & CompType) {
   const data = await client.fetch('*[_type=="info"][0]{logo}');
 
   return (
@@ -20,3 +20,5 @@ export async function Brand({
     </Link>
   );
 }
+
+export const Brand = React.memo(_Brand);
