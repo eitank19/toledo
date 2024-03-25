@@ -60,8 +60,8 @@ export function GalleryCarousel({
                 className={cn(
                   'pl-10 overflow-hidden ',
                   current === idx
-                    ? 'basis-1/3 h-carousel-active'
-                    : 'basis-1/4 h-carousel-inactive'
+                    ? 'basis-3/5 md:basis-1/3 h-carousel-active'
+                    : 'basis-1/5 md:basis-1/4 h-carousel-inactive'
                 )}
                 key={urlForImage(el)}
               >
