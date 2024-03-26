@@ -35,7 +35,7 @@ export function ServiceCard({
           </div>
         </div>
         <Link
-          className="bg-accent max-md:flex-col max-md:gap-5 max-md:px-2 hover:bg-accent/80 transition-all text-background flex md:py-6 justify-center gap-2 items-center font-bold"
+          className="bg-accent max-md:flex-col max-md:min-h-32 max-md:gap-5 max-md:px-2 hover:bg-accent/80 transition-all text-background flex md:py-6 justify-center gap-2 items-center font-bold"
           href={`/services/${slug.current}`}
         >
           <span className="max-md:rotate-90">
