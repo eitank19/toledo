@@ -1,12 +1,9 @@
 'use client';
-import {
-  Carousel,
-  type CarouselApi,
-  CarouselContent,
-} from '@/components/ui/carousel';
+import { Carousel, CarouselContent } from '@/components/ui/carousel';
 import type { Homepage } from '@/types/index.types';
 import { cn } from '@sohanemon/utils';
-import * as React from 'react';
+import type * as React from 'react';
+import useEmbla from '../_lib/embla';
 import { ServiceCard } from './service-card';
 
 type ServiceCarouselProps = React.ComponentProps<'div'> & {
@@ -18,20 +15,8 @@ export function ServiceCarousel({
   services,
   ...props
 }: ServiceCarouselProps) {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
-  React.useEffect(() => {
-    if (!api) {
-      return;
-    }
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
+  const { api, current, setApi } = useEmbla();
 
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
   return (
     <div {...props}>
       <Carousel

@@ -1,9 +1,9 @@
 'use client';
+import useEmbla from '@/app/(index)/_lib/embla';
 import { Img } from '@/components/image';
 import { Motion } from '@/components/motion';
 import {
   Carousel,
-  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import { urlForImage } from '@/sanity/lib/image';
 import { cn } from '@sohanemon/utils';
-import * as React from 'react';
+import type * as React from 'react';
 import type { Image } from 'sanity';
 
 type GalleryCarouselProps = React.ComponentProps<'div'> & {
@@ -23,21 +23,7 @@ export function GalleryCarousel({
   images,
   ...props
 }: GalleryCarouselProps) {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-
-  const [count, setCount] = React.useState(0);
-  React.useEffect(() => {
-    if (!api) {
-      return;
-    }
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
+  const { api, current, setApi } = useEmbla();
 
   if (images.length)
     return (
