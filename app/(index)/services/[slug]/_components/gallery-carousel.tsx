@@ -23,7 +23,7 @@ export function GalleryCarousel({
   images,
   ...props
 }: GalleryCarouselProps) {
-  const { api, current, setApi } = useEmbla();
+  const { current, setApi } = useEmbla();
 
   if (images.length)
     return (
