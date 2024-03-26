@@ -19,21 +19,33 @@ export function ServiceCard({
   return (
     <CarouselItem
       dir="rtl"
-      className={cn('basis-60 pl-10', className)}
+      className={cn('md:basis-60 basis-0 pl-10', className)}
       {...props}
     >
-      <main className="bg-background cursor-grab active:cursor-grabbing text-foreground overflow-hidden rounded-xl">
-        <div className="flex flex-col px-3 items-center pt-7 pb-4">
-          <Img width={70} src={urlForImage(icon)} />
-          <h3 className="font-bold pt-3 pb-1">{name}</h3>
-          <p className="text-center leading-snug line-clamp-3">{description}</p>
+      <main className="bg-background max-md:my-1 max-md:flex cursor-grab active:cursor-grabbing text-foreground overflow-hidden md:rounded-xl rounded-md">
+        <div className="flex max-md:gap-5 md:flex-col px-3 items-center md:pt-7 pb-4">
+          <Img className="max-md:min-w-16" width={70} src={urlForImage(icon)} />
+          <div>
+            <h3 className="font-bold pt-3 md:text-center text-base pb-1">
+              {name}
+            </h3>
+            <p className="md:text-center leading-snug line-clamp-3">
+              {description}
+            </p>
+          </div>
         </div>
         <Link
-          className="bg-accent hover:bg-accent/80 transition-all text-background flex py-6 justify-center gap-2 items-center font-bold"
+          className="bg-accent max-md:flex-col max-md:gap-5 max-md:px-2 hover:bg-accent/80 transition-all text-background flex md:py-6 justify-center gap-2 items-center font-bold"
           href={`/services/${slug.current}`}
         >
-          להמשך קריאה
-          <Img src="/public/export.svg" width={20} />
+          <span className="max-md:rotate-90">
+            <span className="max-md:hidden">להמשך</span> קריאה
+          </span>
+          <Img
+            src="/public/export.svg"
+            className="max-md:scale-x-[-0.9] max-md:scale-y-90 "
+            width={20}
+          />
         </Link>
       </main>
     </CarouselItem>

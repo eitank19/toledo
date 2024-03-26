@@ -32,7 +32,7 @@ export function ServiceCarousel({
         }}
         dir="ltr"
       >
-        <CarouselContent className="-ml-10 select-none max-md:h-96">
+        <CarouselContent className="-ml-10 select-none max-md:h-[540px]">
           {services.map((el) => (
             <ServiceCard key={el.slug.current} {...el} />
           ))}
@@ -58,10 +58,7 @@ export function ServiceCarousel({
         className="flex md:hidden w-full *:translate-y-6 gap-1 items-center justify-center pt-10 pb-5 bg-gradient-to-t via-primary from-primary to-transparent -mt-10 relative z-10"
       >
         <p className="text-base  font-black">הצג את כל השירותים</p>
-        <Iconify
-          icon="bi:caret-down-fill"
-          className="text-accent mt-0.5"
-        />
+        <Iconify icon="bi:caret-down-fill" className="text-accent mt-0.5" />
       </button>
     </div>
   );

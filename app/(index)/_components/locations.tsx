@@ -21,7 +21,7 @@ export async function Locations({ className, ...props }: LocationsProps) {
       <div className="md:flex grid grid-cols-2 gap-10 items-center">
         <Img
           width={382}
-          className="min-w-36 md:min-w-72"
+          className="min-w-36 md:order-last md:min-w-72"
           src={urlForImage(location.image)}
         />
         <div className="flex-1 text-base space-y-1 md:space-y-10 md:columns-3">
