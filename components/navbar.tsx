@@ -13,6 +13,14 @@ import { Brand } from './brand';
 import { Img } from './image';
 import { Motion } from './motion';
 import { Button } from './ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -30,16 +38,56 @@ export function Navbar() {
           <NavContent />
         </React.Suspense>
         <div className="flex gap-5 max-md:grow">
-          <Button
-            className="max-md:hidden"
-            onClick={() =>
-              document
-                .getElementById('send-mail')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            השאירו פרטים
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                className="max-md:hidden"
+                // onClick={() =>
+                //   document
+                //     .getElementById('send-mail')
+                //     ?.scrollIntoView({ behavior: 'smooth' })
+                // }
+              >
+                השאירו פרטים
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>טולדו עבודות בנייה ושיפוצים</DialogTitle>
+                <DialogDescription>
+                  אתם מוזמנים לפנות אלינו בכתובות הבאות:
+                </DialogDescription>
+                <div className="space-y-2 py-6 text-base">
+                  {contacts.map((el) => (
+                    <div
+                      className="flex justify-between max-w-[80%] mx-auto font-black"
+                      key={el.label}
+                    >
+                      <p>{el.label}</p>
+                      <p>{el.info}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-center text-base pb-3">
+                  נשמח לעבוד יחד ולהגשים את חזון בית חלומותיכם
+                </p>
+                <p className="text-foreground/60 text-base text-center">
+                  מעוניינים שנחזור אליכם?{' '}
+                  <button
+                    className="text-link underline underline-offset-1"
+                    onClick={() =>
+                      document
+                        .getElementById('send-mail')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  >
+                    השאירו פנייה כאן
+                  </button>
+                </p>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+
           <React.Suspense>
             <Phone />
           </React.Suspense>
@@ -148,3 +196,18 @@ const NavContentMob = React.memo(
     );
   }
 );
+
+const contacts = [
+  {
+    label: 'משב טולדנו',
+    info: '050-444332',
+  },
+  {
+    label: 'נבו טולדנו',
+    info: '054-333422',
+  },
+  {
+    label: 'דוא”ל',
+    info: 'toledogroup60@gmail.com',
+  },
+];

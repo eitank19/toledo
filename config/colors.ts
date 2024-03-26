@@ -4,6 +4,7 @@ export const colors = {
     foreground: '#292d32',
     primary: '#292d32',
     footer: '#212121',
+    link: '#11007C',
     'primary-foreground': '#fff',
     card: '#f1f1f1',
     'card-foreground': '#000000',
