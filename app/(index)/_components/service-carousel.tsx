@@ -25,7 +25,7 @@ export function ServiceCarousel({
       <Carousel
         setApi={setApi}
         className="mt-7  max-md:px-4"
-        orientation={md ? 'horizontal' : 'vertical'}
+        orientation={(md === false && 'vertical') || 'horizontal'}
         opts={{
           align: md ? 'center' : 'start',
           loop: md ? true : false,
