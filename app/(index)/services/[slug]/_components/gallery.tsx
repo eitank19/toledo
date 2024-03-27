@@ -11,7 +11,7 @@ export const Gallery = ({ images }: { images: Image[] }) => {
 
   if (images.length)
     return (
-      <div className="grid md:grid-cols-3 gap-3 md:gap-6 aspect-[295/181] md:aspect-[590/407] md:grid-rows-3 grid-cols-7 grid-rows-5">
+      <div className="grid max-md:mx-8 md:grid-cols-3 gap-3 md:gap-6 aspect-[295/181] md:aspect-[590/407] md:grid-rows-3 grid-cols-7 max-md:translate-y-3 grid-rows-5">
         {images.map((el, idx) => (
           <Motion
             initial={{ opacity: 0, scale: 0.3 }}

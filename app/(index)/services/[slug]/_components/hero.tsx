@@ -28,7 +28,7 @@ export async function Hero({
     >
       <Gallery images={gallery.slice(0, 4)} />
       <Motion initial={{ opacity: 0, scale: 0.3, y: 100, x: -100 }}>
-        <p className="text-lg max-md:text-center">{caption}</p>
+        <p className="text-lg max-md:font-bold  max-md:text-center">{caption}</p>
         <h1 className="text-4xl font-black pb-4 max-md:text-center">{title}</h1>
         <p className="text-lg line-clamp-4 leading-snug">{description}</p>
         <div className="space-y-2 py-6">
