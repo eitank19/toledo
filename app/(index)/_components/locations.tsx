@@ -11,7 +11,7 @@ export async function Locations({ className, ...props }: LocationsProps) {
 
   return (
     <div className="container" {...props}>
-      <h2 className="font-black text-pretty text-2xl max-w-md mx-auto text-center">
+      <h2 className="font-black text-pretty text-2xl max-w-2xl mx-auto text-center">
         כולם רוצים אותנו איתם, לכן גם אתה
       </h2>
       <p className="text-center mt-3 text-balance">

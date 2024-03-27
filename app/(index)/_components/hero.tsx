@@ -53,7 +53,7 @@ export async function Hero({ className, ...props }: HeroProps) {
           </Link>
         </div>
       </div>
-      <div className='max-md:hidden' />
+      <div className="max-md:hidden" />
       <Img
         className="w-full md:absolute aspect-square left-16 top-16 max-w-[460px] max-md:hidden object-cover max-md:translate-y-5 rounded-2xl"
         src={urlForImage(data.mainImage)}
