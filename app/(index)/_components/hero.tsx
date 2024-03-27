@@ -14,7 +14,7 @@ export async function Hero({ className, ...props }: HeroProps) {
 
   return (
     <div
-      className="relative rounded-3xl md:px-14 md:grid grid-cols-2 gap-16 px-6 max-md:pb-7 py-10 max-sm:text-center text-background "
+      className="relative items-center rounded-3xl md:h-[490px] md:p-16 md:grid grid-cols-2 gap-16 px-6  py-10 max-sm:text-center text-background "
       {...props}
     >
       <Img
@@ -53,8 +53,9 @@ export async function Hero({ className, ...props }: HeroProps) {
           </Link>
         </div>
       </div>
+      <div className='max-md:hidden' />
       <Img
-        className="w-full h-[calc(100%+4rem)] max-md:hidden object-cover translate-y-5 rounded-2xl"
+        className="w-full md:absolute aspect-square left-16 top-16 max-w-[460px] max-md:hidden object-cover max-md:translate-y-5 rounded-2xl"
         src={urlForImage(data.mainImage)}
       />
     </div>
