@@ -21,8 +21,8 @@ export const theme = plugin(() => {}, {
     },
     extend: {
       height: {
-        'carousel-active': '414px',
-        'carousel-inactive': '336px',
+        'carousel-active': 'clamp(18.125rem, 10.859rem + 19.375vw, 25.875rem)',
+        'carousel-inactive': 'clamp(10.938rem, 1.504rem + 25.156vw, 21rem)',
       },
       keyframes: {
         'accordion-down': {

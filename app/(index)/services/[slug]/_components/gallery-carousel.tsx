@@ -1,7 +1,6 @@
 'use client';
 import useEmbla from '@/app/(index)/_lib/embla';
 import { Img } from '@/components/image';
-import { Motion } from '@/components/motion';
 import {
   Carousel,
   CarouselContent,
@@ -35,29 +34,30 @@ export function GalleryCarousel({
           setApi={setApi}
           className="mt-7"
           opts={{
+            startIndex: 5,
             align: 'center',
             loop: true,
           }}
           dir="ltr"
         >
-          <CarouselContent className="-ml-10 h-carousel-active select-none items-center">
-            {[...images, ...images].map((el, idx) => (
+          <CarouselContent className="md:-ml-10 -ml-7 h-carousel-active select-none items-center">
+            {[].concat(...Array(15).fill(images)).map((el, idx) => (
               <CarouselItem
                 className={cn(
-                  'pl-10 overflow-hidden ',
+                  'md:pl-10 pl-7 overflow-hidden transition-all duration-500',
                   current === idx
-                    ? 'basis-3/5 md:basis-1/3 h-carousel-active'
-                    : 'basis-1/5 md:basis-1/4 h-carousel-inactive'
+                    ? 'basis-3/5 md:basis-1/3 max-md:!min-w-56 max-md:max-h-72 aspect-[225/290] md:aspect-[345/414] h-carousel-active'
+                    : 'basis-1/5 md:basis-1/4 max-md:min-w-36 aspect-[135/175] md:aspect-[235/336] h-carousel-inactive'
                 )}
                 key={urlForImage(el)}
               >
-                <Motion className="size-full flex flex-col" layout>
-                  <Img
-                    className={cn('size-full rounded-xl object-cover')}
-                    src={urlForImage(el)}
-                    alt="gallery"
-                  />
-                </Motion>
+                <Img
+                  className={cn(
+                    'size-full cursor-grab active:cursor-grabbing rounded-xl object-cover'
+                  )}
+                  src={urlForImage(el)}
+                  alt="gallery"
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -68,8 +68,8 @@ export function GalleryCarousel({
             <CarouselNext />
             <CarouselPrevious />
           </div>
-          <div className="absolute inset-y-0 left-0 w-56 bg-gradient-to-l from-transparent to-primary" />
-          <div className="absolute inset-y-0 right-0 w-56 bg-gradient-to-r from-transparent to-primary" />
+          <div className="absolute inset-y-0 left-0 w-6 md:w-56 bg-gradient-to-l from-transparent to-primary" />
+          <div className="absolute inset-y-0 right-0 w-6 bg-gradient-to-r from-transparent to-primary" />
         </Carousel>
       </div>
     );
