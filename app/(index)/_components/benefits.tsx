@@ -11,7 +11,7 @@ export async function Benefits({ className, ...props }: BenefitsProps) {
   const benefits = await client.fetch<BenefitType[]>('*[_type=="benefits"]');
   return (
     <div {...props}>
-      <h2 className="font-black text-pretty text-2xl max-w-2xl mx-auto text-center">
+      <h2 className="font-black text-pretty text-2xl max-w-sm md:max-w-2xl mx-auto text-center">
         כבר <span className="text-accent">מעל שישים שנים </span>
         שאנו משפצים בתים, עברנו המון, אז מה אנחנו מספקים?
       </h2>
