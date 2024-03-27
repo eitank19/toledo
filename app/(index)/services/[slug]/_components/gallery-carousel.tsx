@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/carousel';
 import { urlForImage } from '@/sanity/lib/image';
 import { cn } from '@sohanemon/utils';
-import type * as React from 'react';
+import * as React from 'react';
 import type { Image } from 'sanity';
 
 type GalleryCarouselProps = React.ComponentProps<'div'> & {
@@ -22,7 +22,13 @@ export function GalleryCarousel({
   images,
   ...props
 }: GalleryCarouselProps) {
-  const { current, setApi } = useEmbla();
+  const [direction, setDirection] = React.useState(0);
+  const { current, setApi } = useEmbla((api) => {
+    api?.on('select', () => {
+      const direction = api.internalEngine().scrollBody.direction();
+      setDirection(direction);
+    });
+  });
 
   if (images.length)
     return (
@@ -44,10 +50,11 @@ export function GalleryCarousel({
             {[].concat(...Array(15).fill(images)).map((el, idx) => (
               <CarouselItem
                 className={cn(
-                  'md:pl-10 pl-7 overflow-hidden transition-all duration-500',
+                  'md:pl-10 pl-7 will-change-auth overflow-hidden duration-500',
                   current === idx
                     ? 'basis-3/5 md:basis-1/3 max-md:!min-w-56 max-md:max-h-72 aspect-[225/290] md:aspect-[345/414] h-carousel-active'
                     : 'basis-1/5 md:basis-1/4 max-md:min-w-36 aspect-[135/175] md:aspect-[235/336] h-carousel-inactive'
+                    , direction === 1 ? 'animate-in slide-in-from-right-20': 'animate-in slide-in-from-left-20'
                 )}
                 key={urlForImage(el)}
               >
