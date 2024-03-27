@@ -14,12 +14,12 @@ export async function Hero({ className, ...props }: HeroProps) {
 
   return (
     <div
-      className="relative items-center rounded-3xl md:h-[490px] md:p-16 md:grid grid-cols-2 gap-16 px-6  py-10 max-sm:text-center text-background "
+      className="relative drop-shadow-xl items-center rounded-xl md:h-[490px] md:p-16 md:grid grid-cols-2 gap-16 px-6  py-10 max-sm:text-center text-background "
       {...props}
     >
       <Img
         src={urlForImage(data?.backgroundImage)}
-        className="absolute brightness-50 object-cover -z-10 inset-0 size-full rounded-2xl"
+        className="absolute brightness-50 object-cover -z-10 inset-0 size-full rounded-xl"
       />
       <div className="space-y-5">
         <h3 className="font-medium">{data.subtitle}</h3>
@@ -55,7 +55,7 @@ export async function Hero({ className, ...props }: HeroProps) {
       </div>
       <div className="max-md:hidden" />
       <Img
-        className="w-full md:absolute aspect-square left-16 top-16 max-w-[460px] max-md:hidden object-cover max-md:translate-y-5 rounded-2xl"
+        className="w-full md:absolute drop-shadow-lg left-16 top-16 max-w-[460px] aspect-[460/490] max-h-[490px] max-md:hidden object-cover max-md:translate-y-5 rounded-xl"
         src={urlForImage(data.mainImage)}
       />
     </div>
