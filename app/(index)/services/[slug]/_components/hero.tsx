@@ -23,7 +23,7 @@ export async function Hero({
   );
   return (
     <div
-      className="grid items-center grid-cols-1 md:grid-cols-2 py-12 md:py-24  gap-16"
+      className="grid items-center grid-cols-1 md:grid-cols-[1.23fr_1fr] py-12 md:py-24  gap-16"
       {...props}
     >
       <Gallery images={gallery.slice(0, 4)} />

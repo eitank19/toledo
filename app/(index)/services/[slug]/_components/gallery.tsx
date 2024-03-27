@@ -11,12 +11,12 @@ export const Gallery = ({ images }: { images: Image[] }) => {
 
   if (images.length)
     return (
-      <div className="grid md:grid-cols-3 gap-3 md:gap-6  aspect-[590/407] md:grid-rows-3 grid-cols-7 grid-rows-5">
+      <div className="grid md:grid-cols-3 gap-3 md:gap-6 aspect-[295/181] md:aspect-[590/407] md:grid-rows-3 grid-cols-7 grid-rows-5">
         {images.map((el, idx) => (
           <Motion
             initial={{ opacity: 0, scale: 0.3 }}
             className={cn(
-              'rounded-xl overflow-hidden',
+              'rounded-xl drop-shadow-xl overflow-hidden',
               md
                 ? 'nth-[1]:col-span-2 nth-[1]:row-span-2 nth-[4]:col-span-2 nth-[3]:row-span-2 '
                 : 'nth-[1]:col-span-3 nth-[1]:row-span-3 nth-[2]:col-span-4 nth-[2]:row-span-2 nth-[3]:col-span-4 nth-[3]:row-span-3 nth-[4]:col-span-3 nth-[4]:row-span-2'

@@ -6,7 +6,7 @@ export const theme = plugin(() => {}, {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1rem',
+        DEFAULT: '2rem',
         lg: '2rem',
         xl: '3rem',
         '2xl': '4rem',
