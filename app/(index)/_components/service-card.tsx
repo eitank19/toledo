@@ -3,10 +3,11 @@ import { CarouselItem } from '@/components/ui/carousel';
 import { urlForImage } from '@/sanity/lib/image';
 import type { Homepage } from '@/types/index.types';
 import { cn } from '@sohanemon/utils';
+import { useMediaQuery } from '@sohanemon/utils/hooks';
 import Link from 'next/link';
 import type * as React from 'react';
 
-type ServiceCardProps = React.ComponentProps<typeof CarouselItem> & Homepage;
+type ServiceCardProps = React.ComponentProps<'div'> & Homepage;
 
 export function ServiceCard({
   className,
@@ -16,8 +17,9 @@ export function ServiceCard({
   slug,
   ...props
 }: ServiceCardProps) {
+  const Wrapper = useMediaQuery('md') ? CarouselItem : 'div';
   return (
-    <CarouselItem
+    <Wrapper
       dir="rtl"
       className={cn('md:basis-60 basis-0 pl-10', className)}
       {...props}
@@ -48,6 +50,6 @@ export function ServiceCard({
           />
         </Link>
       </main>
-    </CarouselItem>
+    </Wrapper>
   );
 }
