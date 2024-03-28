@@ -20,7 +20,7 @@ export async function Services({ className, ...props }: ServicesProps) {
     >
       <div className="container py-14">
         <h2 className="font-black text-balance text-2xl text-center">
-          אנו מציעים <span className="text-accent">מגוון שירותים מקיף</span> לעבודות שיפוצים ובנייה
+          <span className="text-accent">מגוון שירותים מקיף</span> לעבודות שיפוצים ובנייה
         </h2>
         <br />
         <p className="text-center text-balance">
