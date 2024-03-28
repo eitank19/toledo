@@ -12,10 +12,10 @@ export async function Benefits({ className, ...props }: BenefitsProps) {
   return (
     <div {...props}>
       <h2 className="font-black text-pretty text-2xl max-w-sm md:max-w-2xl mx-auto text-center">
-        מעל הכל <span className="text-accent">עבודה עברית אמיתית </span> המבוססת על אמינות, סבלנות והגינות
+        עבודה עברית אמיתית שמעל הכל מבוססת על <span className="text-accent">אמינות, סבלנות והגינות</span>
       </h2>
       <p className="text-center mt-3 text-balance">
-        אנחנו שואפים לשנות את תדמית עולם הבנייה, אנו רואים את בניית ביתכם כהגשמת חלום ולאירוע שכזה אנו מתייחסים בהתאם ומעוניינים לספק חוויה נעימה, כנה עם שקיפות מלאה
+        אנחנו שואפים לשנות את תדמית עולם הבנייה, בניית ביתכם היא הגשמת חלום ולאירוע שכזה אנו מתייחסים בהתאם ע"י חוויה נעימה, כנה ובשקיפות מלאה
       </p>
       <div className="grid gap-7 mt-10 md:gap-11 grid-cols-1 md:grid-cols-3 ">
         {benefits.map((benefit) => (
