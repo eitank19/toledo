@@ -18,7 +18,7 @@ export async function Services({ className, ...props }: ServicesProps) {
         'bg-primary w-screen -left-1/2 translate-x-1/2 text-background  relative'
       )}
     >
-      <div className="max-w-screen-xl mx-auto py-14">
+      <div className="container py-14">
         <h2 className="font-black text-balance text-2xl text-center">
           השירות שלנו <span className="text-accent">מקיף</span> וכולל הרבה דברים
         </h2>
