@@ -22,7 +22,7 @@ export async function Hero({ className, ...props }: HeroProps) {
         className="absolute brightness-70 object-cover -z-10 inset-0 size-full rounded-xl"
       />
       <div className="space-y-5">
-        <h3 className="font-medium">{data.subtitle}</h3>
+        <h3 className="font-medium">{data?.subtitle}</h3>
         <h1 className="text-3xl font-black">{data.title}</h1>
         <ul>
           {data.bulletPoints.map((el) => (
@@ -31,7 +31,7 @@ export async function Hero({ className, ...props }: HeroProps) {
             </li>
           ))}
         </ul>
-        <p className="font-black py-2">{data.description}</p>
+        <p className="font-black py-2">{data?.description}</p>
         <div className="flex gap-5 md:gap-7 max-md:flex-col items-center">
           <Button
             size="lg"
