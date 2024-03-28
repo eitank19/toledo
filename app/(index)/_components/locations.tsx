@@ -12,11 +12,10 @@ export async function Locations({ className, ...props }: LocationsProps) {
   return (
     <div className="container" {...props}>
       <h2 className="font-black text-pretty text-2xl max-w-72 md:max-w-2xl mx-auto text-center">
-        כולם רוצים אותנו איתם, לכן גם אתה
+        שישים שנה בתחום, איפה לא עבדנו?
       </h2>
       <p className="text-center mt-3 text-balance">
-        עם הזמן גדלנו מעסק קטן ואיזורי לחברה מחוזית ומקיפה שמספקת מגוון שירותי
-        שיפוצים ובנייה
+        הפסקנו לספור מיקומים חדשים, אבל כשעוברים על הרשימה שמנו לב שאשכרה עבדנו במלא מקומות, רואים את היישוב שלכם ברשימה?
       </p>
       <div className="md:flex grid grid-cols-2 gap-6 md:gap-10 items-center">
         <Img
