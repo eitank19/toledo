@@ -26,7 +26,7 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
       <div className="bg-primary w-screen -left-1/2 translate-x-1/2 text-background  relative">
         <GalleryCarousel images={data?.gallery} />
       </div>
-      <Article image={data?.gallery[0] || {}} article={data?.article} />
+      <Article image={data?.gallery?.[0] || {}} article={data?.article} />
       <br />
       <Faq faqs={data?.article.faq} />
       <div className="h-32" />
