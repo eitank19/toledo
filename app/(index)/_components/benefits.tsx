@@ -12,14 +12,11 @@ export async function Benefits({ className, ...props }: BenefitsProps) {
   return (
     <div {...props}>
       <h2 className="font-black text-pretty text-2xl max-w-sm md:max-w-2xl mx-auto text-center">
-        כבר <span className="text-accent">מעל שישים שנים </span>
-        שאנו משפצים בתים, עברנו המון, אז מה אנחנו מספקים?
+        מעל הכל <span className="text-accent">עבודה עברית אמיתית </span> המבוססת על אמינות, סבלנות והגינות
       </h2>
       <p className="text-center mt-3 text-balance">
-        עם הזמן גדלנו מעסק קטן ואיזורי לחברה מחוזית ומקיפה שמספקת מגוון שירותי
-        שיפוצים ובנייה
+        אנחנו שואפים לשנות את תדמית עולם הבנייה, אנו רואים את בניית ביתכם כהגשמת חלום ולאירוע שכזה אנו מתייחסים בהתאם ומעוניינים לספק חוויה נעימה, כנה עם שקיפות מלאה
       </p>
-
       <div className="grid gap-7 mt-10 md:gap-11 grid-cols-1 md:grid-cols-3 ">
         {benefits.map((benefit) => (
           <div className="flex bg-card gap-5 p-6 rounded-lg" key={benefit._id}>
