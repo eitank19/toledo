@@ -24,11 +24,11 @@ export default async function SlugPage({ params: { slug } }: PageProps) {
     <main className="container">
       <Hero {...data} />
       <div className="bg-primary w-screen -left-1/2 translate-x-1/2 text-background  relative">
-        <GalleryCarousel images={data.gallery} />
+        <GalleryCarousel images={data?.gallery} />
       </div>
-      <Article image={data.gallery[0] || {}} article={data.article} />
+      <Article image={data?.gallery[0] || {}} article={data?.article} />
       <br />
-      <Faq faqs={data.article.faq} />
+      <Faq faqs={data?.article.faq} />
       <div className="h-32" />
       <Suspense fallback={'loading ...'}>
         <FormComponent formData={formData} />
