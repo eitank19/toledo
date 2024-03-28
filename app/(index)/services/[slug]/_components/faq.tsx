@@ -11,7 +11,7 @@ export const Faq = ({ faqs }: { faqs: FAQ[] }) => {
   return (
     <div className="max-w-screen-md mx-auto">
       <h2 className="font-black text-pretty text-2xl text-center">
-        כותרת לסקשן <span className="text-accent">שאלות ותשובות</span>
+        מה עוד <span className="text-accent">כדאי לכם לדעת?</span>
       </h2>
       <br />
       <Accordion className="space-y-6" type="single" collapsible>
