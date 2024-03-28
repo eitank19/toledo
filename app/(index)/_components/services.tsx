@@ -20,12 +20,11 @@ export async function Services({ className, ...props }: ServicesProps) {
     >
       <div className="container py-14">
         <h2 className="font-black text-balance text-2xl text-center">
-          השירות שלנו <span className="text-accent">מקיף</span> וכולל הרבה דברים
+          אנו מציעים <span className="text-accent">מגוון שירותים מקיף</span> לעבודות שיפוצים ובנייה
         </h2>
         <br />
         <p className="text-center text-balance">
-          עם הזמן גדלנו מעסק קטן ואיזורי לחברה מחוזית ומקיפה שמספקת מגוון שירותי
-          שיפוצים ובנייה
+          מעל 60 שנים של בנייה ושיפוצים מביאים שלושה דורות של קבלנים רשומים מנוסים משלום טולדנו, בנו יעקב ונכדיו משב ונבו
         </p>
         <ServiceCarousel services={services} />
       </div>
