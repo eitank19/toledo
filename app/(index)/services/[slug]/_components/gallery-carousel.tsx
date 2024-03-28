@@ -34,7 +34,7 @@ export function GalleryCarousel({
     return (
       <div className="container py-14" {...props}>
         <h2 className="font-black text-balance text-2xl text-center">
-          עבודות לעיון בנושא זה
+          מחפשים השראה מעבודות באותו התחום? 
         </h2>
         <Carousel
           setApi={setApi}
